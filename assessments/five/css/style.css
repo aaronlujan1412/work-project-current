@@ -248,3 +248,12 @@ main {
   border-radius: 20px;
   border: none;
 }
+
+footer {
+  background-color: dimgrey;
+  color: white;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
