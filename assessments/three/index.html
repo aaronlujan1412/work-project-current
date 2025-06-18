@@ -12,43 +12,75 @@
       <div class="title_bar">
         <h1>Java Jam Coffee Bar</h1>
       </div>
-      <!-- Nav bar for page -->
-      <div class="nav_bar">
-        <nav>
-          <ul class="nav_links">
-            <li><a href="https://google.com">Home</a></li>
-            <li><a href="https://google.com">Products</a></li>
-            <li><a href="https://google.com">My Acount</a></li>
-            <li><a href="https://google.com">Contact Us</a></li>
-          </ul>
-        </nav>
-      </div>
     </header>
+
+    <!-- Nav bar for page -->
+    <nav class="nav_links">
+      <ul class="nav_links">
+        <li><a href="https://google.com">Home</a></li>
+        <li><a href="https://google.com">Products</a></li>
+        <li><a href="https://google.com">My Acount</a></li>
+        <li><a href="https://google.com">Contact Us</a></li>
+      </ul>
+    </nav>
 
     <main>
       <!-- Search filters -->
       <div class="coffee_options">
         <p>Coffee Temperature</p>
+        <input type="radio" id="cold" name="coffe_temperature" value="cold">
+        <label for="coffe_temperature">Cold</label><br>
+        <input type="radio" id="hot" name="coffe_temperature" value="hot">
+        <label for="coffe_temperature">Hot</label><br>
+        <input type="radio" id="medium" name="coffe_temperature" value="medium">
+        <label for="coffe_temperature">Medium</label><br>
+
+        <p>Roast Type</p>
+        <input type="checkbox" id="dark" name="roast_type" value="dark">
+        <label for="roast_type">Dark</label><br>
+        <input type="checkbox" id="medium" name="roast_type" value="medium">
+        <label for="roast_type">Medium</label><br>
+        <input type="checkbox" id="light" name="roast_type" value="light">
+        <label for="roast_type">Light</label><br>
       </div>
       <!-- Search results page -->
       <div class="search_results">
-        <p>products found</p>
+        <p>15 Products Found!!</p>
+        <p>Showing 4 of 15 results</p>
+        <div class="search_result_one">
+        </div>
+        <div class="search_result_two">
+        </div>
+        <div class="search_result_three">
+        </div>
+        <div class="search_result_four">
+        </div>
       </div>
       <!-- Advertising space -->
       <div class="advertisements">
-        <p>Advertisements</p>
+        <p>Advertisement</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices, erat vel auctor semper, ligula metus eleifend urna, nec dignissim erat ipsum sed leo.</p>
       </div>
-      <!-- Info on Java Jam -->
-      <div class="about_section">
-        <p>about</p>
-      </div>
-      <!-- Additional links for customers -->
-      <div class="additional_links">
-        <p>links</p>
-      </div>
-      <!-- Refund policies -->
-      <div class="refund_information">
-        <p>refunds</p>
+      <!-- Additional information -->
+      <div class="additional_information">
+        <!-- Info on Java Jam -->
+        <div class="about_section">
+          <p>about</p>
+        </div>
+        <!-- Additional links for customers -->
+        <div class="additional_links">
+          <p>Additional Links</p>
+          <ul>
+            <li><a>More Coffee!</a></li>
+            <li><a>Coffee Grinders</a></li>
+            <li><a>French Presses</a></li>
+            <li><a>Latte Art Gallery</a></li>
+          </ul>
+        </div>
+        <!-- Refund policies -->
+        <div class="refund_information">
+          <p>Refund Policies</p>
+        </div>
       </div>
     </main>
     <!-- Footer with copyright information -->

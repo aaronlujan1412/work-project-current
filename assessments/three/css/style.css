@@ -1,33 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   padding: 0;
   margin: 0;
   width: 100%;
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(16, minmax(10px, 1fr));
+  display: flex;
+  flex-direction: column;
+  background: lightpink;
 }
 
 header {
-  grid-column: 1 / span 6;
-  grid-row: 1 / 2;
+  background: purple;
+  font-size: .50rem;
+  flex-basis: 40px;
 }
 
 .nav_links {
+  font-size: .75rem;
+  background-color: white;
   list-style: none;
   display: flex;
   flex-direction: row;
-  gap: 40px;
+  column-gap: 40px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 20px;
 }
 
 main {
-  grid-column: 1 / span 6;
-  grid-row: 2 / 10;
+  flex: 1;
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: 150px auto 150px;
+  grid-template-rows: 2fr 1fr;
+  margin: 20px;
+  grid-gap: 20px;
+  grid-template-areas:
+  "coffee_options search_results advertisements"
+  "additional_information additional_information additional_information"
 }
 
+.coffee_options {
+  grid-area: coffee_options;
+}
+
+.search_results {
+  grid-area: search_results;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 30px repeat(2, 1fr);
+  grid-template-areas:
+  "products_found showing_products"
+  "search_result_one search_result_two"
+  "search_result_three search_result_four"
+}
+
+.search_result_one {
+  grid-area: search_result_one;
+  background-color: red;
+}
+
+.search_result_two {
+  grid-area: search_result_two;
+  background-color: yellow;
+}
+
+.search_result_three {
+  grid-area: search_result_three;
+  background-color: blue;
+}
+
+.search_result_four {
+  grid-area: search_result_four;
+  background-color: green;
+}
+
+.advertisements {
+  grid-area: advertisements;
+}
+
+.additional_information {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  grid-area: additional_information;
+  padding-top: 10px;
+}
+
+/* .about_section { */
+/*   grid-area: additional_information; */
+/* } */
+/**/
+/* .additional_links { */
+/*   grid-area: additional_information; */
+/* } */
+/**/
+/* .refund_information { */
+/*   grid-area: additional_information; */
+/* } */
+
 footer {
-  grid-column: 1 / span 6;
-  grid-row: 10 / auto;
+  background-color: brown;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 
