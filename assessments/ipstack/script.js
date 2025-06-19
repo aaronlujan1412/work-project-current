@@ -5,6 +5,14 @@ const mockData = {
   zip: "84128"
 }
 
+const divs = {
+  ip: document.getElementById("ip"),
+  location: document.getElementById("location"),
+  zip: document.getElementById("zip"),
+};
+
+const apiKey = "6c05027224217364784994e52646e49d";
+
 let ip = "";
 let country = "";
 let city = "";
@@ -20,7 +28,7 @@ switch (useMock) {
     zip = mockData.zip;
     break;
   case false:
-    fetch("https://api.ipstack.com/172.83.7.250?access_key=6c05027224217364784994e52646e49d")
+    fetch(`https://api.ipstack.com/172.83.7.250?access_key=${apiKey}`)
       .then(response => response.json())
       .then(data => {
         ip = data.ip;
@@ -34,8 +42,4 @@ switch (useMock) {
     break;
 }
 
-const divs = {
-  ip: document.getElementById("ip"),
-  location: document.getElementById("location"),
-  zip: document.getElementById("zip"),
-};
+
