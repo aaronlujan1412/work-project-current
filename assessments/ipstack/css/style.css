@@ -1,5 +1,5 @@
 *, *::before, *::after {
-
+  box-sizing: border-box;
 }
 
 * {
@@ -14,4 +14,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
 }
