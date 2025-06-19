@@ -1,8 +1,8 @@
 const mockData = {
   ip:"123.123.12.123",
-  country_name: "United States",
-  city: "Salt Lake",
-  zip: "84128"
+  country_name: "Botswana",
+  city: "Botswana City",
+  zip: "88552"
 }
 
 const divs = {
@@ -21,7 +21,7 @@ const userInfo = {
 }
 
 function getUserInformation() {
-  fetch(`https://api.ipstack.com/172.83.7.250?access_key=${apiKey}`)
+  fetch(`https://api.ipstack.com/check?access_key=${apiKey}`)
     .then(response => response.json())
     .then(data => {
       userInfo.ip = data.ip;
