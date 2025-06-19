@@ -11,7 +11,7 @@ const divs = {
   zip: document.getElementById("zip"),
 };
 
-const apiKey = "6c05027224217364784994e52646e49d";
+const apiKey = "Removed for security";
 
 const userInfo = {
   ip: "",
@@ -21,16 +21,17 @@ const userInfo = {
 }
 
 function getUserInformation() {
-  fetch(`https://api.ipstack.com/check?access_key=${apiKey}`)
+  return fetch("https://ipapi.co/json/")
     .then(response => response.json())
     .then(data => {
-      userInfo.ip = data.ip;
-      userInfo.country = data.country_name;
-      userInfo.city = data.city;
-      userInfo.zip = data.zip;
+      userInfo.ip = data.ip || "Unknown";
+      userInfo.country = data.country_name || "Unknown";
+      userInfo.city = data.city || "Unknown";
+      userInfo.zip = data.postal || "Unknown";
     })
     .catch(error => {
       console.error("Error fetching data:", error);
+      Object.keys(userInfo).forEach(key => userInfo[key] = "Could not load");
     })
 }
 
@@ -40,18 +41,22 @@ function displayUserInfo() {
   divs.zip.innerText = `Your zip code is ${userInfo.zip}`;
 }
 
-const useMock = true;
-
-document.getElementById("getInfo").addEventListener("click", displayUserInfo)
-
-switch (useMock) {
-  case true:
-    userInfo.ip = mockData.ip;
-    userInfo.country = mockData.country_name;
-    userInfo.city = mockData.city;
-    userInfo.zip = mockData.zip;
-    break;
-  case false:
-    getUserInformation();
-    break;
+function setMockInfo() {
+  userInfo.ip = mockData.ip;
+  userInfo.country = mockData.country_name;
+  userInfo.city = mockData.city;
+  userInfo.zip = mockData.zip;
 }
+
+const useMock = false;
+
+document.getElementById("getInfo").addEventListener("click", function() {
+  if (useMock) {
+    setMockInfo();
+    displayUserInfo();
+  } else {
+    getUserInformation().then(() => {
+      displayUserInfo();
+    });
+  }
+});
