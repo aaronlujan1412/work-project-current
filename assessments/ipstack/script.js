@@ -48,7 +48,7 @@ function setMockInfo() {
   userInfo.zip = mockData.zip;
 }
 
-const useMock = false;
+const useMock = true;
 
 document.getElementById("getInfo").addEventListener("click", function() {
   if (useMock) {
