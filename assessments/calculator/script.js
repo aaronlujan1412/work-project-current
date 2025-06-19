@@ -85,8 +85,8 @@ function parseButtonPress(button) {
 }
 
 const buttonPressed = (e) => {
-  buttonCurrent = e.target;
-  buttonAction = buttonCurrent.dataset.action;
+  let buttonCurrent = e.target;
+  let buttonAction = buttonCurrent.dataset.action;
   parseButtonPress(buttonCurrent)
 }
 
@@ -98,8 +98,6 @@ let currentOperator = "";
 
 
 const buttons = document.querySelectorAll(".button");
-let buttonCurrent = null;
-let buttonAction = null;
 
 
 buttons.forEach(button => {
