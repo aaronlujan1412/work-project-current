@@ -1,22 +1,18 @@
 function add(num1, num2) {
-  let result = num1 + num2;
-  return result;
+  return num1 + num2;
 }
 
 function subtract(num1, num2) {
-  let result = num1 - num2;
-  return result;
+  return num1 - num2;
 }
 
 function multiply(num1, num2) {
-  let result = num1 * num2;
-  return result;
+  return num1 * num2;
 }
 
 function divide(num1, num2) {
   if (num2 === 0) return "Error";
-  let result = num1 / num2;
-  return result;
+  return num1 / num2;
 }
 
 function calculate(operator, num1, num2) {
@@ -29,47 +25,49 @@ function calculate(operator, num1, num2) {
       return multiply(num1, num2);
     case "/":
       return divide(num1, num2);
-    case "=":
-      return num2;
-    default:
-      return num1;
   }
 }
 
 function clearScreen() {
-  currentDisplay.innerText = "";
+  calculator.display.innerText = "";
 }
 
 function clearAll() {
   clearScreen();
-  firstNumber = null;
+  calculator.firstNumber = null;
 }
 
 function backspace() {
-  currentDisplay.innerText = currentDisplay.innerText.substring(0, currentDisplay.innerText.length - 1)
+  calculator.display.innerText = calculator.display.innerText.slice(0, -1);
 }
 
 function setCalculatorForNextCalculation(result) {
-  currentDisplay.innerText = result;
-  firstNumber = result;
-  currentOperator = "=";
-
+  calculator.display.innerText = result;
+  calculator.firstNumber = result;
+  calculator.currentOperator = null;
 }
 
 function parseButtonPress(button) {
   switch(button.dataset.action) {
     case "number":
-      currentDisplay.append(button.innerText);
+      calculator.display.innerText += button.innerText;
       break;
     case "operator":
-      if (currentDisplay.innerText === "") return;
-      currentOperator = button.innerText;
-      firstNumber = parseFloat(currentDisplay.innerText);
+      if (calculator.display.innerText === "") return;
+      calculator.currentOperator = button.innerText;
+      calculator.firstNumber = parseFloat(calculator.display.innerText);
       clearScreen();
       break;
     case "equals":
-      let secondNumber = parseFloat(currentDisplay.innerText)
-      let result = calculate(currentOperator, firstNumber, secondNumber);
+      if (calculator.display.innerText === "") return;
+      let secondNumber = parseFloat(calculator.display.innerText)
+      let result = calculate(calculator.currentOperator, calculator.firstNumber, secondNumber);
+      if (result === "Error" {
+        calculator.display.innerText = "Error";
+        calculator.firstNumber = null;
+        calculator.currentOperator = null;
+        return;
+      })
       setCalculatorForNextCalculation(result);
       break;
     case "function":
@@ -84,22 +82,17 @@ function parseButtonPress(button) {
   }
 }
 
-const buttonPressed = (e) => {
-  let buttonCurrent = e.target;
-  let buttonAction = buttonCurrent.dataset.action;
-  parseButtonPress(buttonCurrent)
+const calculator = {
+  display: document.getElementById("input"),
+  firstNumber: null,
+  currentOperator: null,
 }
 
-let currentDisplay = document.getElementById("input");
-
-let firstNumber = null;
-let secondNumber = null;
-let currentOperator = "";
-
+const buttonPressed = (e) => {
+  parseButtonPress(e.target);
+}
 
 const buttons = document.querySelectorAll(".button");
-
-
 buttons.forEach(button => {
   button.addEventListener("click", buttonPressed)
 });

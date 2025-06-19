@@ -1,7 +1,10 @@
 * {
-  /* top-right-bottom-left */
   padding: 0;
   margin: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -10,12 +13,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Arial, sans_serif;
+  font-family: arial, sans-serif;
 }
 
 main {
-  width: 15rem;
-  height: 22rem;
+  width: 100%;
+  max-width: 15rem;
+  height: auto;
+  aspect-ratio: 15 / 22;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,7 +42,7 @@ main {
   height: 60%;
   width: 90%;
   text-align: right;
-  border: 6px inset black;
+  border: 4px inset black;
   background-color: black;
   color: green;
   font-size: 1.9rem;
@@ -120,6 +125,10 @@ button {
 
 #nine {
   grid-area: nine;
+}
+
+#zero {
+  grid-area: zero;
 }
 
 #decimal {
