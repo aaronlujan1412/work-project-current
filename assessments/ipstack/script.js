@@ -53,16 +53,5 @@ switch (useMock) {
     break;
   case false:
     getUserInformation();
-    // fetch(`https://api.ipstack.com/172.83.7.250?access_key=${apiKey}`)
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     ip = data.ip;
-    //     country = data.country_name;
-    //     city = data.city;
-        // zip = data.zip;
-      // })
-      // .catch(error => {
-        // console.error("Error fetching data:", error);
-      // })
     break;
 }
